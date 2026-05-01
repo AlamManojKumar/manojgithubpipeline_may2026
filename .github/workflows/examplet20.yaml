@@ -14,8 +14,8 @@ jobs:
          run:  printenv
        - name: Welcome to project 
          run:  echo "welcome to project learning githubaction"
-       - name: ping command
-         run:  ping -c 4 google.com
+       - name: check the internet
+         run:  curl -I https://www.google.com
          
     
 
