@@ -22,8 +22,11 @@ jobs:
             run:  echo "welcome to project learning githubaction"
           - name: check the internet
             run:  curl -I https://www.google.com
-          
-          - name: Analyze the code
+          - name: Initialize CodeQL
+            uses: github/codeql-action/init@v3
+            with:
+              languages: java
+          - name: Analyze code
             uses: github/codeql-action/analyze@v3
          
     
