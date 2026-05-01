@@ -1,0 +1,20 @@
+name: LearningGithubActions
+on:
+  push: 
+      branches: 
+        - main
+jobs:
+  my_first_leaerning:
+      name: MY First JOb
+      runs-on: ubuntu-latest
+      steps:
+       - name: Hello how are you
+         run:  echo "Hello how are you"
+       - name: List environment variable
+         run:  printenv
+       - name: Welcome to project 
+         run:  echo "welcome to project learning githubaction"
+         
+    
+
+
