@@ -4,18 +4,38 @@ on:
       branches: 
         - main
 jobs:
-  my_first_leaerning:
-      name: MY First JOb
-      runs-on: ubuntu-latest
-      steps:
-       - name: Hello how are you
-         run:  echo "Hello how are you"
-       - name: List environment variable
-         run:  printenv
-       - name: Welcome to project 
-         run:  echo "welcome to project learning githubaction"
-       - name: check the internet
-         run:  curl -I https://www.google.com
+   build:
+        name: MY First JOb
+        runs-on: ubuntu-latest
+        permissions:
+          security-events: write
+          actions: read
+          contents: read
+        steps:
+          - name: check out the code
+            uses: actions/checkout@v4
+          - name: Hello how are you
+            run:  echo "Hello how are you"
+          - name: List environment variable
+            run:  printenv
+          - name: Welcome to project 
+            run:  echo "welcome to project learning githubaction"
+          - name: check the internet
+            run:  curl -I https://www.google.com
+          - name: Intialize the CodeQL
+            uses: github/codeql-action/init@v3
+            with:
+              languages: java
+
+          - name: publish the test result
+            uses: EnricoMi/publish-unit-test-result-action@v2 
+            with:
+              languages:
+                   java
+          - name: AutoBuild
+            uses: github/codeql-action/autobuild@v3
+          - name: Analyze the code
+            uses: github/codeql-action/analyze@v3
          
     
 
